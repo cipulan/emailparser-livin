@@ -1,6 +1,9 @@
 name = "emailparser-livin"
 main = "src/index.ts"
 compatibility_date = "2024-01-01"
+workers_dev = true
+preview_urls = false
+
 
 # This is required for postal-mime to work in some environments if needed, 
 # but usually standard modules work fine.
