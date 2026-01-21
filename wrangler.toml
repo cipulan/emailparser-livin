@@ -1,0 +1,13 @@
+name = "emailparser-livin"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# This is required for postal-mime to work in some environments if needed, 
+# but usually standard modules work fine.
+# node_compat = true # Uncomment if you face specific node polyfill issues, though likely not needed for postal-mime purely.
+
+[triggers]
+crons = [] 
+# Configuration for email routing will be done in the dashboard usually, 
+# but we can't fully define specific routes here purely by toml for the *worker* side binding 
+# without the zone setup, but the worker itself is ready.
