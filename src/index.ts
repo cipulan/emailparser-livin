@@ -30,8 +30,8 @@ export default {
 			// Extract transaction details if available
 			const transactionDetails = parseTransactionDetails(email.html || email.text || '');
 
-			let telegramMessage = `📧 *New Email Received*\n\n` +
-				`*From:* ${escapeMarkdown(from)}\n` +
+			let telegramMessage = `📧 *${from}*\n\n` +
+				// `*From:* ${escapeMarkdown(from)}\n` +
 				`*Subject:* ${escapeMarkdown(subject)}\n`;
 
 			if (date) {
