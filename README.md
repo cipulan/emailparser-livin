@@ -45,7 +45,10 @@ A Cloudflare Worker that parses incoming emails **Transaction Notification from 
     ```ini
     TELEGRAM_BOT_TOKEN="your_token"
     TELEGRAM_CHAT_ID="your_chat_id"
+    TELEGRAM_TOPIC_ID="your_topic_id"
     ```
+
+    `TELEGRAM_TOPIC_ID` is **optional** — only needed when sending to a specific topic in a forum-enabled group. The topic ID can be seen in the topic's URL (e.g. `https://t.me/c/1234567890/5` → topic ID is `5`; the "General" topic is `1`).
 
 ## Deployment
 
@@ -59,6 +62,7 @@ A Cloudflare Worker that parses incoming emails **Transaction Notification from 
     ```bash
     npx wrangler secret put TELEGRAM_BOT_TOKEN
     npx wrangler secret put TELEGRAM_CHAT_ID
+    npx wrangler secret put TELEGRAM_TOPIC_ID   # Optional (only for forum topics)
     ```
     *Note: You can also set these in the Cloudflare Dashboard under Worker > Settings > Variables and Secrets.*
 

@@ -9,6 +9,7 @@ dist
 # hermit
 .hermit
 bin
+bin/
 
 # email
 *.eml
