@@ -7,6 +7,7 @@ preview_urls = false
 [vars]
 # Telegram forum topic ID (optional) — target topic when sending to a forum-enabled group
 TELEGRAM_TOPIC_ID = "62"
+WA_ENABLED = "false"
 
 
 # This is required for postal-mime to work in some environments if needed,
