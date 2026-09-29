@@ -1,6 +1,6 @@
 # Email Parser Worker
 
-A Cloudflare Worker that parses incoming emails **Transaction Notification from Livin** using `postal-mime` and forwards transaction details to Telegram.
+A Cloudflare Worker that parses incoming emails **Transaction Notification from Livin** using `postal-mime` and forwards transaction details to Telegram and WhatsApp (via WAHA).
 
 ## Features
 - Parses extracting:
@@ -12,6 +12,7 @@ A Cloudflare Worker that parses incoming emails **Transaction Notification from 
   - **No. Referensi**
   - **Sumber Dana** (Supports "Rekening Sumber")
 - Sends formatted notifications to Telegram.
+- Forwards the same notification to a WhatsApp group via WAHA.
 - Supports handling forwarded emails (extracts original details).
 
 ```json
@@ -46,6 +47,9 @@ A Cloudflare Worker that parses incoming emails **Transaction Notification from 
     TELEGRAM_BOT_TOKEN="your_token"
     TELEGRAM_CHAT_ID="your_chat_id"
     TELEGRAM_TOPIC_ID="your_topic_id"
+    WA_API_URL="https://your-waha-server"
+    WA_API_KEY="your_waha_api_key"
+    WA_GROUP_ID="your_whatsapp_group_id"
     ```
 
     `TELEGRAM_TOPIC_ID` is **optional** — only needed when sending to a specific topic in a forum-enabled group. The topic ID can be seen in the topic's URL (e.g. `https://t.me/c/1234567890/5` → topic ID is `5`; the "General" topic is `1`).
@@ -63,6 +67,9 @@ A Cloudflare Worker that parses incoming emails **Transaction Notification from 
     npx wrangler secret put TELEGRAM_BOT_TOKEN
     npx wrangler secret put TELEGRAM_CHAT_ID
     npx wrangler secret put TELEGRAM_TOPIC_ID   # Optional (only for forum topics)
+    npx wrangler secret put WA_API_URL
+    npx wrangler secret put WA_API_KEY
+    npx wrangler secret put WA_GROUP_ID
     ```
     *Note: You can also set these in the Cloudflare Dashboard under Worker > Settings > Variables and Secrets.*
 
