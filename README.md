@@ -50,6 +50,7 @@ A Cloudflare Worker that parses incoming emails **Transaction Notification from 
     WA_API_URL="https://your-waha-server"
     WA_API_KEY="your_waha_api_key"
     WA_GROUP_ID="your_whatsapp_group_id"
+    WA_SESSION="default"  # optional, defaults to "default"
     ```
 
     `TELEGRAM_TOPIC_ID` is **optional** — only needed when sending to a specific topic in a forum-enabled group. The topic ID can be seen in the topic's URL (e.g. `https://t.me/c/1234567890/5` → topic ID is `5`; the "General" topic is `1`).
@@ -70,6 +71,7 @@ A Cloudflare Worker that parses incoming emails **Transaction Notification from 
     npx wrangler secret put WA_API_URL
     npx wrangler secret put WA_API_KEY
     npx wrangler secret put WA_GROUP_ID
+    npx wrangler secret put WA_SESSION  # optional
     ```
     *Note: You can also set these in the Cloudflare Dashboard under Worker > Settings > Variables and Secrets.*
 
